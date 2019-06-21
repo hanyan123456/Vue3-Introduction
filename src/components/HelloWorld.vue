@@ -1,0 +1,39 @@
+<template>
+  <div class="hello">
+    <h1>{{ count }}</h1>
+    <h1>{{ total }}</h1>
+    <button @click="addCount">add</button>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
+
+@Component
+export default class HelloWorld extends Vue {
+  @Prop() private msg!: string;
+  public count:string=this.$store.state.count
+  public total:number=this.$store.state.total
+  addCount():void{  
+    this.total ++
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
